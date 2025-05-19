@@ -8,13 +8,13 @@ export default function BoardGameRentalApp() {
   const [filtro, setFiltro] = useState("");
 
   const carregarJogos = async () => {
-    const res = await fetch("http://34.95.206.231:3000/jogos");
+    const res = await fetch("http://localhost:3000/jogos");
     const data = await res.json();
     setJogos(data);
   };
 
   const alternarAluguel = async (id, novoStatus) => {
-    await fetch(`http://34.95.206.231:3000/jogos/${id}`, {
+    await fetch(`http://localhost:3000/jogos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ alugado: novoStatus }),
@@ -31,7 +31,7 @@ export default function BoardGameRentalApp() {
   );
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="geral p-6 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-4 text-center">Aluguel de Board Games</h1>
       <div className="flex justify-center mb-6">
         <Input
@@ -46,7 +46,16 @@ export default function BoardGameRentalApp() {
         {jogosFiltrados.map((jogo) => (
           <Card key={jogo.id} className="bg-white shadow-md rounded-2xl p-4">
             <CardContent>
+              <img
+                src={jogo.imagem}
+                alt={jogo.nome}
+                className="w-full h-48  object-contain rounded-lg mb-4"
+              />
+
               <h2 className="text-xl font-semibold mb-2">{jogo.nome}</h2>
+              <p className="mb-2 text-gray-700">
+                Preço: <span className="font-medium">R$ {Number(jogo.preco).toFixed(2)}</span>
+              </p>
               <p className="mb-3">
                 Status:{" "}
                 <span className={jogo.alugado ? "text-red-500" : "text-green-600"}>
