@@ -12,6 +12,8 @@ Esta é a camada de interface (Frontend) da aplicação de **Aluguel de Board Ga
 
 O projeto foi construído durante os módulos práticos do curso *“JavaScript e TypeScript do básico ao avançado”* da Udemy.
 
+> **📚 Observação:** Este projeto foi desenvolvido com finalidade **didática**, como parte dos meus estudos e prática de desenvolvimento. Seu principal objetivo é aplicar conceitos, boas práticas, padrões de projeto e tecnologias utilizadas no desenvolvimento de aplicações reais.
+
 ---
 
 ### ⚙️ Funcionalidades Principais
